@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"/>
+    <package name="basicstruts" extends="struts-default">
+        <action name="system" class="action.SystemDetails" method="execute">
+            <result name="success">/System1.jsp</result>
+        </action>
+        <action name="upload" class="action.upload">
+            <result name="success">/success.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="showProduct" class="action.ProductAction" method="show">
+            <result name="show">show.jsp</result>
+        </action>
+        <action name="addProduct" class="action.ProductAction" method="add">
+            <interceptor-ref name="params"/>
+            <interceptor-ref name="timer"/>
+            <result name="show" >show.jsp</result>
+        </action>
+        <action name="query" class="action.LoginAction" method="execute">
+            <result name="success">/success1.jsp</result>
+            <result name="error">/error1.jsp</result>
+        </action>
+        <action name="emailer" class="action.Emailer" method="execute">
+            <result name="success">/success2.jsp</result>
+            <result name="error">/error2.jsp</result>
+        </action>
+        <action name="empinfo" class="action.EmployeeAction" method="execute">
+            <result name="input">/employee.jsp</result>
+            <result name="success">/success.jsp</result>
+        </action>
+        <action name="locale" class="action.Locale" method="execute">
+            <result name="success">/i18n.jsp</result>
+        </action>
+        <action name="employee" class="action.Employee" method="execute">
+            <result name="input">/i18n.jsp</result>
+            <result name="success">/success.jsp</result>
+        </action>
+        <action name="helloWorld" class="action.HelloWorldAction" method="execute">
+            <result name="success">/helloWorld.jsp</result>
+        </action>
+    </package>
+</struts>
